@@ -1,0 +1,47 @@
+<html>
+
+  <head>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+  </head>
+
+  <body>
+
+    <h1>Search Results</h1>
+
+    <p>{{ total }} results found.</p>
+
+    {% for result in numbered_results %}
+      <p>
+        {{ result[0] }}.
+        <a href="{{ result[1]['webUrl'] }}">{{ result[1]['fields']['headline'] }}</a>,
+        {% if result[1]['fields']['byline'] %}
+          by {{ result[1]['fields']['byline'] }},
+        {% endif %}
+        {% if result[1]['sectionName'] %}
+          in section &ldquo;{{ result[1]['sectionName'] }}&rdquo;.
+        {% endif %}
+        {% if result[1]['fields']['standfirst'] %}
+          <blockquote>{{ result[1]['fields']['standfirst'] }}</blockquote>
+        {% endif %}
+      </p>
+    {% endfor %}
+
+    <p>Page {{ current_page }} of {{ pages }}</p>
+
+    <p>
+      {% if url_prev_page %}
+        <a href="{{ url_prev_page }}">Prev</a>
+      {% else %}
+        Prev
+      {% endif %}
+      {% if url_next_page %}
+        <a href="{{ url_next_page }} ">Next</a>
+      {% else %}
+        Next
+      {% endif %}
+    </p>
+    <div id="attribution">
+      <a href="http://www.guardian.co.uk/open-platform/"><img src="http://image.guardian.co.uk/sys-images/Guardian/Pix/pictures/2010/03/01/poweredbyguardianBLACK.png" alt="Powered by The Guardian." /></a>
+    </div>
+  </body>
+</html>
