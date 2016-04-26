@@ -1,3 +1,5 @@
+**THIS SOFTWARE ACCESSES AN OLD VERSION OF THE GUARDIAN API AND IS KNOWN NOT TO WORK CURRENTLY.**
+
 guasearch is small, simple web application which allows a user to
 search for articles on The Guardian's website
 (http://www.guardian.co.uk) using simple queries.
